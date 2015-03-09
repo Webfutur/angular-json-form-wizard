@@ -1,0 +1,50 @@
+{
+    "schema": {
+        "type": "object",
+        "title": "Album",
+        "properties": {
+            "name": {
+                "title": "Name",
+                "type": "string"
+            },
+            "city" : {
+                "title" : "City",
+                "type" : "string"
+            },
+            "location" : {
+                "title" : "Location",
+                "type" : "string"
+            }
+        },
+        "required": [
+            "date",
+            "images",
+            "location"
+        ]
+      },
+    "form": [
+        {
+            "type": "wizard",
+            "tabs": [
+                {
+                    "title": "1",
+                    "items": [
+                        "date"
+                    ]
+                },
+                {
+                    "title": "2",
+                    "items": [
+                        "city"
+                    ]
+                },
+                {
+                    "title": "3",
+                    "items": [
+                        "location"
+                    ]
+                }
+            ]
+        }
+    ]
+}

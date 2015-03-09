@@ -1,0 +1,64 @@
+module.exports = function(grunt) {
+
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            },
+            build: {
+                src: 'src/schema-form-wizard-type.js',
+                dest: 'dist/schema-form-wizard-type.min.js'
+            }
+        },
+        
+        ngtemplates: {
+            wizard:{
+                src:        ['src/directives/decorators/bootstrap/wizard.html', 'src/directives/decorators/bootstrap/wizard-buttons.html'],
+                dest:       'tmp-wizard-template.js',
+                options:    {
+                    htmlmin:  { collapseWhitespace: true, collapseBooleanAttributes: true },
+                    bootstrap:  function(module, script) {
+                        return "angular.module('ngSchemaFormWizardType').run(['$templateCache', function($templateCache) {" + script + "}]);";
+                    },
+                    url:    function(url) { return url; }
+                }
+            }
+        },
+        
+        concat:   {
+            app:    {
+                src:  [ 'dist/schema-form-wizard-type.min.js', 'tmp-wizard-template.js' ],
+                dest:  'dist/schema-form-wizard-type.min.js' 
+            }
+        },
+        
+        clean: ["tmp-wizard-template.js"],
+        
+        watch: {
+            scripts: {
+                files: ['src/schema-form-wizard-type.js', 'src/directives/decorators/bootstrap/wizard.html', 'src/directives/decorators/bootstrap/wizard-buttons.html'],
+                tasks: ['default'],
+                options: {
+                    spawn: false
+                }
+            }
+        }
+        
+    }
+
+
+    );
+
+    // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-angular-templates');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    // Default task(s).
+    grunt.registerTask('default', ['uglify', 'ngtemplates', 'concat', 'clean']);
+
+};
