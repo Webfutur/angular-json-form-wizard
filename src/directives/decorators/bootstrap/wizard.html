@@ -3,7 +3,7 @@
         <li ng-repeat="tab in form.tabs"
             class="disabled"
             ng-class="{active: tab.active}">
-            <a class="disabled" href="#" ng-disabled="true">{{ tab.title }}</a>
+            <a class="disabled" ng-disabled="true">{{ tab.title }}</a>
         </li>
     </ul>
     <div class="tab-content {{form.fieldHtmlClass}}">
