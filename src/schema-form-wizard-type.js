@@ -69,4 +69,21 @@ ngSchemaFormWizardType.service('WizardHandler', ['$q', function($q) {
         }
     };
     
+    this.displayArrayButtons = function(form) {
+        
+        for (var k in form)
+        {
+            if(k == 'add' && form[k] == false) {
+                form[k] = null;
+            }
+            if(k == 'remove' && form[k] == false) {
+                form[k] = null;
+            }
+            if (typeof form[k] == "object" && form[k] !== null) {
+                this.displayArrayButtons(form[k]);
+            }
+        }
+        
+    };
+    
 }]);
