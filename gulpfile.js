@@ -19,13 +19,12 @@ var banner = ['/**',
     ''].join('\n');
 
 function prepareTemplates() {
-    return gulp.src('./src/directives/decorators/**/*.html')
+    return gulp.src('./src/directives/decorators/bootstrap/**/*.html')
         //.pipe(minify and preprocess the template html here)
         .pipe(angularTemplatecache({
             module: 'schemaFormWizard'
         }));
 }
-
 
 gulp.task('build-app-dev', function() {
     return gulp.src('./src/schema-form-wizard.js')
@@ -64,4 +63,3 @@ gulp.task('connect', function() {
         fallback: 'index.html'
     });
 });
-
