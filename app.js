@@ -1,33 +1,28 @@
 'use strict';
 
-var myApp = angular.module('myApp', [
+var myApp = angular.module('formApp', [
     'schemaForm',
-    'ngSchemaFormWizardType'
+    'schemaFormWizard'
 ]);
-
-
 
 // our controller for the form
 // =============================================================================
-myApp.controller('FormController', ['$scope', '$http', 'WizardHandler', function($scope, $http, WizardHandler) {
+myApp.controller('formController', ['$scope', '$http', 'WizardHandler', function($scope, $http, WizardHandler) {
 
-      
-        
-    $scope.loadForm = function(category) {
-        $http.get('schema.json').success(function(data) { 
-        // $http.get('http://api.gd.leclub.iwf.dom/app_dev.php/fr/api/products?_format=json&category='+category+'&limit=1&offset=0&sort=id&direction=asc').success(function(data) {   
+    $scope.loadForm = function() {
+        $http.get('schema.json').success(function(data) {
             $scope.schema = data.schema;
             $scope.form = data.form;
             $scope.currentTabIndex = 0;
-            WizardHandler.activateTab($scope, $scope.currentTabIndex);        
+            WizardHandler.activateTab($scope, $scope.currentTabIndex);
         });
     };
-    
-    
+
+
     $scope.loadForm(10);
 
     $scope.model = {};
-    
+
     $scope.submit = function() {
         $scope.$broadcast('schemaFormValidate');
         if ($scope.myForm.$valid) {
@@ -45,12 +40,11 @@ myApp.controller('FormController', ['$scope', '$http', 'WizardHandler', function
         WizardHandler.activateTab($scope, --$scope.currentTabIndex);
     };
 
-    
+
     $scope.valueChanged = function(key,modelValue) {
         if(key[0] === 'category') {
             $scope.loadForm(modelValue);
         }
-        
     };
 
 }]);

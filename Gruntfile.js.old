@@ -8,11 +8,11 @@ module.exports = function(grunt) {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'src/schema-form-wizard-type.js',
-                dest: 'dist/schema-form-wizard-type.min.js'
+                src: 'src/schema-form-wizard.js',
+                dest: 'dist/schema-form-wizard.min.js'
             }
         },
-        
+
         ngtemplates: {
             wizard:{
                 src:        ['src/directives/decorators/bootstrap/wizard.html', 'src/directives/decorators/bootstrap/wizard-buttons.html'],
@@ -26,16 +26,16 @@ module.exports = function(grunt) {
                 }
             }
         },
-        
+
         concat:   {
             app:    {
-                src:  [ 'dist/schema-form-wizard-type.min.js', 'tmp-wizard-template.js' ],
-                dest:  'dist/schema-form-wizard-type.min.js' 
+                src:  [ 'dist/schema-form-wizard.js', 'tmp-wizard-template.js' ],
+                dest:  'dist/schema-form-wizard-type.min.js'
             }
         },
-        
+
         clean: ["tmp-wizard-template.js"],
-        
+
         watch: {
             scripts: {
                 files: ['src/schema-form-wizard-type.js', 'src/directives/decorators/bootstrap/wizard.html', 'src/directives/decorators/bootstrap/wizard-buttons.html'],
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                 }
             }
         }
-        
+
     }
 
 
