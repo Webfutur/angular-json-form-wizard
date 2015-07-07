@@ -1,13 +1,13 @@
 'use strict';
 
-var myApp = angular.module('formApp', [
+var formApp = angular.module('formApp', [
     'schemaForm',
     'schemaFormWizard'
 ]);
 
 // our controller for the form
 // =============================================================================
-myApp.controller('formController', ['$scope', '$http', 'WizardHandler', function($scope, $http, WizardHandler) {
+formApp.controller('formController', ['$scope', '$http', 'WizardHandler', function($scope, $http, WizardHandler) {
 
     $scope.loadForm = function() {
         $http.get('schema.json').success(function(data) {

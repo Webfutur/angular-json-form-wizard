@@ -39,7 +39,7 @@
     "email": "mail@kevinlot.me",
     "url": "kevinlot.me"
   }],
-  "license": "GPLv2",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/Webfutur/angular-schema-form-wizard/issues"
   },

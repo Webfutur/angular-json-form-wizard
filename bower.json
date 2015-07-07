@@ -23,7 +23,7 @@
     "wizard"
   ],
   "main": "dist/schema-form-wizard.min.js",
-  "license": "GPLv2",
+  "license": "GPL-2.0",
   "ignore": [
     "**/.*",
     "node_modules",
