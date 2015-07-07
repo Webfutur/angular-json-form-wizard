@@ -1,17 +1,15 @@
-'use strict';
+angular.
+module('schemaFormWizard', []).
 
-var schemaFormWizard = angular.module('schemaFormWizard', []);
-
-schemaFormWizard.config(['schemaFormDecoratorsProvider', function(decoratorsProvider) {
+config(['schemaFormDecoratorsProvider', function(decoratorsProvider) {
     decoratorsProvider.addMapping(
         'bootstrapDecorator',
         'wizard',
-        'bootstrap/wizard.html'
+        'wizard.html'
     );
+}]).
 
-}]);
-
-schemaFormWizard.service('WizardHandler', ['$q', function($q) {
+service('WizardHandler', ['$q', function($q) {
 
     this.clone = function(obj)
     {

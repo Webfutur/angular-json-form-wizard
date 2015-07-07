@@ -15,6 +15,13 @@
     "bootstrap": "~3.3.5"
   },
   "description": "Wizard your form",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "schema",
+    "form",
+    "wizard"
+  ],
   "main": "dist/schema-form-wizard.min.js",
   "license": "GPLv2",
   "ignore": [
