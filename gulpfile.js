@@ -5,7 +5,6 @@ var angularTemplatecache = require('gulp-angular-templatecache');
 var concat = require('gulp-concat');
 var connect = require('gulp-connect');
 var header = require('gulp-header');
-var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 
