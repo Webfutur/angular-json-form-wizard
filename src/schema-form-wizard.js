@@ -42,6 +42,7 @@ service('WizardHandler', ['$q', function($q) {
     this.validateTab = function(scope, tabIndex)
     {
         var dumpTabs = this.clone(scope.form[0].tabs);
+        var dumpModel = this.clone(scope.model);
         for (var i = 0; i < scope.form[0].tabs.length; i++) {
             if (i > tabIndex) {
                 scope.form[0].tabs[i].items = [];
@@ -51,6 +52,7 @@ service('WizardHandler', ['$q', function($q) {
         var deferred = $q.defer();
         setTimeout(function() {
             scope.form[0].tabs = dumpTabs;
+            scope.model = dumpModel;
             if (scope.myForm.$valid) {
                 deferred.resolve();
             } else {
