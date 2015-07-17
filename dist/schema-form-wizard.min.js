@@ -1,6 +1,6 @@
 /**
  * angular-schema-form-wizard - Wizard your form
- * @version v0.1.0
+ * @version v0.1.2
  * @link https://github.com/Webfutur/angular-schema-form-wizard
  * @license GPL-2.0
  */
