@@ -1,12 +1,12 @@
 var gulp = require('gulp');
 
-var addStream = require('add-stream');
+var addStream            = require('add-stream');
 var angularTemplatecache = require('gulp-angular-templatecache');
-var concat = require('gulp-concat');
-var server = require('gulp-express');
-var header = require('gulp-header');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
+var concat               = require('gulp-concat');
+var express              = require('gulp-express');
+var header               = require('gulp-header');
+var sourcemaps           = require('gulp-sourcemaps');
+var uglify               = require('gulp-uglify');
 
 var bower = require(__dirname + '/bower.json');
 var banner = ['/**',
@@ -57,5 +57,5 @@ gulp.task('default', ['build-app-dev', 'build-app-prod']);
 
 // connect local server
 gulp.task('server', function() {
-    server.run([__dirname + '/demo/index.js']);
+    express.run([__dirname + '/demo/index.js']);
 });
