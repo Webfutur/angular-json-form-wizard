@@ -5,19 +5,15 @@ var formApp = angular.module('formApp', [
     'schemaFormWizard'
 ]);
 
-// our controller for the form
-// =============================================================================
 formApp.controller('formController', ['$scope', '$http', 'WizardHandler', function($scope, $http, WizardHandler) {
-
     $scope.loadForm = function() {
-        $http.get('schema.json').success(function(data) {
+        $http.get('/demo/schema.json').success(function(data) {
             $scope.schema = data.schema;
             $scope.form = data.form;
             $scope.currentTabIndex = 0;
             WizardHandler.activateTab($scope, $scope.currentTabIndex);
         });
     };
-
 
     $scope.loadForm(10);
 
@@ -40,16 +36,9 @@ formApp.controller('formController', ['$scope', '$http', 'WizardHandler', functi
         WizardHandler.activateTab($scope, --$scope.currentTabIndex);
     };
 
-
     $scope.valueChanged = function(key,modelValue) {
         if(key[0] === 'category') {
             $scope.loadForm(modelValue);
         }
     };
-
 }]);
-
-
-
-
-

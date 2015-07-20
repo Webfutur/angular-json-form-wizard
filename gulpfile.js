@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var addStream = require('add-stream');
 var angularTemplatecache = require('gulp-angular-templatecache');
 var concat = require('gulp-concat');
-var connect = require('gulp-connect');
+var server = require('gulp-express');
 var header = require('gulp-header');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
@@ -56,9 +56,6 @@ gulp.task('build-app-prod', function() {
 gulp.task('default', ['build-app-dev', 'build-app-prod']);
 
 // connect local server
-gulp.task('connect', function() {
-    connect.server({
-        port: 8080,
-        fallback: 'index.html'
-    });
+gulp.task('server', function() {
+    server.run(['./demo/index.js']);
 });
